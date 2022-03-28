@@ -4,7 +4,7 @@ import requests
 class api():
     data = []
     ville = input("Entrer un nom de ville: ")
-    url = "http://api.weatherapi.com/v1/current.json?key="mettre sa propre clé api "" & q = + ville
+    url = "http://api.weatherapi.com/v1/current.json?key=30dc9a70cb174cc88bf93846220802&q=" + ville
     content = requests.get(url)
     data = content.json()
     ville = data["location"]["name"]
