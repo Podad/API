@@ -1,12 +1,13 @@
 import requests
 from tkinter import *
-from datetime import datetime
+import time
 
 
 def api():
-    e = ""
     data = []
-    url = "http://api.weatherapi.com/v1/current.json?key=30dc9a70cb174cc88bf93846220802&q=" + e.get()
+    ville = input("Entrer un nom de ville: ")
+    time.sleep(5)
+    url = "http://api.weatherapi.com/v1/current.json?key=30dc9a70cb174cc88bf93846220802&q=" + ville
     content = requests.get(url)
     data = content.json()
     ville = data["location"]["name"]
@@ -28,9 +29,5 @@ window.config(background='#dee5dc')
 
 label1 = Label(window, text=api(), font=("Courrier", 20), bg="#dee5dc")
 label1.pack()
-
-e = Entry(window)
-e.pack()
-e.bind(api)
 
 window.mainloop()
