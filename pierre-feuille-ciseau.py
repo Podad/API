@@ -1,19 +1,23 @@
-from asyncio.windows_events import PipeServer
-import time
 import random
+import re
 
 # Pierre Papier Ciseau
 
-pierre = "pierre"
-papier = "papier"
-ciseau = "ciseau"
-a = random.randint(0, 2)
-g = True
-user = input("Enter ")
-b = (papier, pierre, ciseau)
-c = b[a]
-d = True
 
-print(c)
-time.sleep(1)
-print(user)
+def ordi():
+    global c
+    pierre = 0
+    papier = 1
+    ciseau = 2
+    a = random.randint(0, 2)
+    b = (papier, pierre, ciseau)
+    c = b[a]
+    return c
+
+
+user = input("Enter ")
+
+if user == c:
+    print("gg mec")
+
+user = input("Entre une réponse")
