@@ -1,23 +1,40 @@
 import random
-import re
 
 # Pierre Papier Ciseau
 
-
-def ordi():
-    global c
-    pierre = 0
-    papier = 1
-    ciseau = 2
-    a = random.randint(0, 2)
-    b = (papier, pierre, ciseau)
-    c = b[a]
-    return c
+#pierre > ciseau
+#ciseau > papier
+#papier > pierre
 
 
-user = input("Enter ")
+jeux = True
+pierre = "pierre"
+papier = "papier"
+ciseau = "ciseau"
+a = random.randint(0, 2)
+b = (papier, pierre, ciseau)
+c = b[a]
 
-if user == c:
-    print("gg mec")
 
 user = input("Entre une réponse")
+
+
+while jeux:
+    if user == papier:
+        if c == user:
+            print("Egaliter")
+    elif user == pierre:
+        if c ==
+    elif user != c:
+        user = input("Entre une autre réponse : ")
+        a = random.randint(0, 2)
+        b = (papier, pierre, ciseau)
+        c = b[a]
+    else:
+        jeux = False
+        print("ERREUR")
+        break
+
+
+print("gg mec")
+print(c)
