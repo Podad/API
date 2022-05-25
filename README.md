@@ -1,3 +1,3 @@
-# API
+# Petit projet en Python
 Requête api météo 
-Et jeux pierre feuille cisaux
+et jeux pierre feuille cisaux
