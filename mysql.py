@@ -10,6 +10,8 @@ def getConnection():
                                  cursorclass=pymysql.cursors.DictCursor)
     return connection
 
+connection = myconnutils.getConnection() 
+
 sql = "Select data From table "
 try :
     cursor = connection.cursor() 
