@@ -1,10 +1,9 @@
-# from flask import Flask, jsonify, request
-# import wrapper
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine, Column, String, ForeignKey
 
 name_db = input(str("Entre une bdd : "))
+
 MYSQL_HOST = "127.0.0.1"
 MYSQL_PORT = 3306
 MYSQL_USER = "root"
@@ -23,15 +22,23 @@ session = Session()
 Base = declarative_base()
 
 
-class User(Base, name_db):
-    "Cette classe correspond à la version objet de notre table user"
+class User(Base, name_db): #Structure table User
 
     __tablename__ = name_db
-    email = Column(String(120), unique=True, nullable=False, primary_key=True)
+    id = Column(int(40),unique=True, nullable=False,primary_key=True)
     nom = Column(String(80), nullable=False)
     prenom = Column(String(80), nullable=False)
+
+
+class Info(Base, name_db):  # Structure table Information
+
+    __tablename__ = name_db
+    email = Column(String(120), nullable=False)
     ville = Column(String(80), nullable=False)
     telephone = Column(String(80), nullable=False)
+    age = Column(int(80),nullable=False)
+    taille = Column(int(80),nullable=False)
+    pointure = Column(int(80),nullable=False)
 
 
 def add_user(email, nom, prenom, ville, telephone):
