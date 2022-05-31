@@ -13,18 +13,16 @@ def getConnection():
 connection = myconnutils.getConnection() 
 
 sql = "Select data From table "
-try :
-    cursor = connection.cursor() 
-    # Exécutez sql et passez- lui un paramètre.
-    cursor.execute(sql, ( 10 ) )  
-    print ("cursor.description: ", cursor.description) 
-    print() 
-    for row in cursor:
-        print (" ----------- ")
-        print("Row: ", row)
-        print ("Emp_No: ", row["Emp_No"])
-        print ("Emp_Name: ", row["Emp_Name"])
-        print ("Hire_Date: ", row["Hire_Date"] , type(row["Hire_Date"]) ) 
+try:
+    with connection.cursor() as cursor:
+        # SQL
+        sql = "SELECT Dept_No, Dept_Name FROM Department "
+        # Execute query.
+        cursor.execute(sql)
+        print("cursor.description: ", cursor.description)
+        print()
+        for row in cursor:
+            print(row)
 finally:
-    # Achevez la connexion
+    # Close connection.
     connection.close()
